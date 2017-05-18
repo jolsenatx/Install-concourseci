@@ -47,17 +47,26 @@ docker-compose version &> /tmp/z
 DCinst=`grep -wc version /tmp/z`
 if test $DCinst -eq 0
 then
-   apt install docker-compose
-    #EX=1
+    echo " docker-compose -  needs to be installed!"
+    echo " on ubuntu Execute: "
+    echo "              apt install docker-compose"
+    echo "  "
+    echo " or similar to install on current platform.  "
+    EX=1
 fi
 #
 docker version &> /tmp/z 
 DCk=`grep -wc version /tmp/z`
 if test $DCk -eq 0
 then
-    
-    apt install docker.io
-    #EX=1
+    echo "  "
+    echo " docker  -  needs to be installed!"
+    echo " on ubuntu Execute: "
+    echo "              apt install docker.io"
+    echo "  "
+    echo " or similar to install on current platform.  "
+    echo "  "
+    EX=1
 fi
 #
 # check for ssh-keygen
