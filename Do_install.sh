@@ -48,7 +48,7 @@ DCinst=`grep -wc version /tmp/z`
 if test $DCinst -eq 0
 then
    apt install docker-compose
-    EX=1
+    #EX=1
 fi
 #
 docker version &> /tmp/z 
@@ -57,7 +57,7 @@ if test $DCk -eq 0
 then
     
     apt install docker.io
-    EX=1
+    #EX=1
 fi
 #
 # check for ssh-keygen
