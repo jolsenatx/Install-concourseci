@@ -43,7 +43,7 @@ sleep 2
 sleep 1
 #
 ##################
-docker-compose version&> /tmp/z 
+docker-compose version &> /tmp/z 
 DCinst=`grep -wc version /tmp/z`
 if test $DCinst -eq 0
 then
@@ -62,7 +62,7 @@ then
     echo "  "
     echo " docker  -  needs to be installed!"
     echo " on ubuntu Execute: "
-    echo "              apt install docker"
+    echo "              apt install docker.io"
     echo "  "
     echo " or similar to install on current platform.  "
     echo "  "
@@ -86,7 +86,7 @@ then
 
 fi
 #
-###################333
+###################
 if test $EX -eq 1
 then
      echo "  "
@@ -104,15 +104,15 @@ fi
 if test -f /keys/web/authorized_worker_keys
 then
     echo " "
-    echo "   /keys dir found..."
-    ls /keys/*
+    #echo "   Local /keys dir found..."
+    #ls /keys/*
     echo "  "
-    echo " ################################# "
-    echo "   ssh keys already created... "
-    echo " ################################# "
+    echo " ##################################### "
+    echo "   Local ssh keys already created... "
+    echo " ##################################### "
 else
     echo "  "
-    echo " Creating /keys for concourse...."
+    echo " Creating local /keys for concourse...."
     echo "  "
     mkdir -p /keys/web /keys/worker
     ssh-keygen -t rsa -f /keys/web/tsa_host_key -N '' && \
@@ -122,7 +122,7 @@ else
   cp /keys/web/tsa_host_key.pub /keys/worker
 fi
 #
-##########################3333
+##########################
 #
 # Edit USEdocker-compose.yml
 #
@@ -177,8 +177,10 @@ fi
 #
 #  create ENV file
   export DOCKERHOST=${CIP} 
+  export CONCOURSE_EXTERNAL_URL=http://${CIP}:8080
   echo "export DOCKERHOST=${CIP} " > DOCKERENV
-  echo "export CONCOURSE_EXTERNAL_URL=${CIP} " >> DOCKERENV
+  echo "export CONCOURSE_EXTERNAL_URL=http://${CIP}:8080 " >> DOCKERENV
+ source DOCKERENV
 
          sleep 1
           echo "  "
@@ -188,10 +190,10 @@ fi
          sleep 1
 #
 # Code from Jeff Olsen
- echo "xdocker volume create --name concourse-db"
- echo "x#docker volume create --name concourse-web-keys"
- echo "x#docker volume create --name concourse-worker-keys"
- echo "x#DOCKERHOST=${CIP} docker-compose up -d"
+    docker volume create --name concourse-db
+    docker volume create --name concourse-web-keys
+    docker volume create --name concourse-worker-keys
+    DOCKERHOST=${CIP} docker-compose up -d
 #
 ############################
 #
@@ -251,7 +253,7 @@ Tfly=`cat /tmp/z | wc -l`
       Fdest=`echo $PATH | awk -F: '{ print $1 }'`
       if test -f fly_linux_amd64
       then
-           cp fly_linux_amd64 ${Fdest}/.
+           cp fly_linux_amd64 ${Fdest}/fly
       else
            echo "  " 
            echo "  'fly' executable is MIA  " 
@@ -266,6 +268,7 @@ Tfly=`cat /tmp/z | wc -l`
          echo " "
          echo "    DOCKERENV files created. "
          echo "        Containing ENV you might need"
+         echo "         =>  source DOCKERENV"
          echo " "
          echo "  binary 'fly' installed ... "
          echo "        run:  fly -t tutorial login -c http://${CIP}"
