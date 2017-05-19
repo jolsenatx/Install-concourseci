@@ -6,16 +6,6 @@
 #
 # Vars
 #
-# Collect IP for concourse upfront
-UCIP=$1
-if [ ${UCIP}X = "X" ]
-then
-     FOO=0 
-else
-    echo "Using $UCIP as concourse IP"
-    FOO=1
-   CIP=`echo $UCIP`
-fi
 ########
 #
  UDCYML=USEdocker-compose.yml
@@ -65,7 +55,7 @@ then
 case $ANS in
 y|Y)
   echo "Installing docker-compose..."
-  apt-get install docker-compose
+  apt install docker-compose
 ;;
 *)
     echo "  "
@@ -102,19 +92,19 @@ then
     echo "  "
     echo " openssh-server  -  needs to be installed!"
     echo "  "
-      read -p " Would you like to NOT install now? Type 'y' => " ANS
+      read -p " Would you like to install now? Type 'y' => " ANS
 
 case $ANS in
 y|Y)
+  echo "Installing openssh-serice..."
+  apt install openssh-server 
+;;
+*)
     echo "  "
   echo "  You have choosen not to install openssh at this time."
   echo "  This package can not execute without it"
     echo "  "
    EX=1
-;;
-*)
-  echo "Installing openssh-serice..."
-  apt install openssh-server 
 ;;
 esac
 fi
@@ -175,15 +165,10 @@ else
     echo "  "
 fi
 #
-if test $FOO -eq 0
-then
  echo "  "
  echo "  Please input the IP-address to be used to connect with	"
  echo "  the concourse web interface (i.e.  192.168.22.22) "
    read -p '=> ' CIP 
-else
-    CIP=`echo $UCIP`
-fi
 
   if [ ${CIP}X = 'X' ]
   then

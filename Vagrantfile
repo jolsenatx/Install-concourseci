@@ -4,8 +4,8 @@ Vagrant.configure("2") do |config|
     jumpbox.vm.box = "ubuntu/xenial64"
     jumpbox.vm.hostname = 'jumpbox'
     jumpbox.vm.box_url = "ubuntu/xenial64"
-    jumpbox.vm.provision :shell, path: "bootstrap.sh"
-    jumpbox.vm.provision :shell, path: "Do_install.sh"
+    #jumpbox.vm.provision :shell, path: "bootstrap.sh"
+    #jumpbox.vm.provision :shell, path: "Do_install.sh"
 
     jumpbox.vm.network :private_network, ip: "192.168.99.100"
 
@@ -18,9 +18,11 @@ Vagrant.configure("2") do |config|
 
 #Concourse CI VM
   config.vm.define "concourse" do |concourse|
-    concourse.vm.box = "concourse/lite"
+    concourse.vm.box = "ubuntu/xenial64"
     concourse.vm.hostname = 'concourse'
-    concourse.vm.box_url = "concourse/lite"
+    concourse.vm.box_url = "ubuntu/xenial64"
+    concourse.vm.provision :shell, path: "bootstrap.sh"
+    #concourse.vm.provision "shell", path: "Do_install.sh", :args => "192.168.99.101"
 
     concourse.vm.network :private_network, ip: "192.168.99.101"
 
@@ -30,4 +32,5 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--name", "concourse"]
     end
   end
+
 end
