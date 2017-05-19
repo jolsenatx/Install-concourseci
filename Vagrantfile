@@ -1,4 +1,5 @@
-#Jumpbox with Cloud Foundry CLI installed
+#Jumpbox VM that installs Cloud Foundry CLI
+
 Vagrant.configure("2") do |config|
   config.vm.define "jumpbox" do |jumpbox|
     jumpbox.vm.box = "ubuntu/xenial64"
@@ -14,7 +15,7 @@ Vagrant.configure("2") do |config|
     end
   end
 
-#Concourse CI VM
+#Concourse CI VM Setup
   config.vm.define "concourse" do |concourse|
     concourse.vm.box = "ubuntu/xenial64"
     concourse.vm.hostname = 'concourse'
