@@ -4,8 +4,6 @@ Vagrant.configure("2") do |config|
     jumpbox.vm.box = "ubuntu/xenial64"
     jumpbox.vm.hostname = 'jumpbox'
     jumpbox.vm.box_url = "ubuntu/xenial64"
-    #jumpbox.vm.provision :shell, path: "bootstrap.sh"
-    #jumpbox.vm.provision :shell, path: "Do_install.sh"
 
     jumpbox.vm.network :private_network, ip: "192.168.99.100"
 
