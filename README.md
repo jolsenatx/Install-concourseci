@@ -60,7 +60,7 @@ fly -t tutorial sync
 
 Thank you to [Steven Thellen](https://github.com/thells176/Install-concourseci) for writing the script that installs Concourse
 
-Now that you have a working Concourse environment, I highly recommend using [Flight School](https://concourse.ci/flight-school.html) to learn how to use Concourse. 
+Now that you have a working Concourse environment, I highly recommend learning how to fly with Concourse by following the [Flight School](https://concourse.ci/flight-school.html) tutorial.
 
 Also, You are probably wondering why not just use the official Concourse Vagrant box? 
 
