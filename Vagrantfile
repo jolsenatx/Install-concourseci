@@ -1,11 +1,10 @@
-#Jumpbox with Cloud Foundry CLI installed
+#Jumpbox VM that installs Cloud Foundry CLI
+
 Vagrant.configure("2") do |config|
   config.vm.define "jumpbox" do |jumpbox|
     jumpbox.vm.box = "ubuntu/xenial64"
     jumpbox.vm.hostname = 'jumpbox'
     jumpbox.vm.box_url = "ubuntu/xenial64"
-    #jumpbox.vm.provision :shell, path: "bootstrap.sh"
-    #jumpbox.vm.provision :shell, path: "Do_install.sh"
 
     jumpbox.vm.network :private_network, ip: "192.168.99.100"
 
@@ -16,13 +15,12 @@ Vagrant.configure("2") do |config|
     end
   end
 
-#Concourse CI VM
+#Concourse CI VM Setup
   config.vm.define "concourse" do |concourse|
     concourse.vm.box = "ubuntu/xenial64"
     concourse.vm.hostname = 'concourse'
     concourse.vm.box_url = "ubuntu/xenial64"
     concourse.vm.provision :shell, path: "bootstrap.sh"
-    #concourse.vm.provision "shell", path: "Do_install.sh", :args => "192.168.99.101"
 
     concourse.vm.network :private_network, ip: "192.168.99.101"
 
