@@ -5,6 +5,7 @@ Vagrant.configure("2") do |config|
     jumpbox.vm.box = "ubuntu/xenial64"
     jumpbox.vm.hostname = 'jumpbox'
     jumpbox.vm.box_url = "ubuntu/xenial64"
+    jumpbox.vm.provision :shell, path: "bootstrap_jumpbox.sh"
 
     jumpbox.vm.network :private_network, ip: "192.168.99.100"
 
@@ -20,7 +21,7 @@ Vagrant.configure("2") do |config|
     concourse.vm.box = "ubuntu/xenial64"
     concourse.vm.hostname = 'concourse'
     concourse.vm.box_url = "ubuntu/xenial64"
-    concourse.vm.provision :shell, path: "bootstrap.sh"
+    concourse.vm.provision :shell, path: "bootstrap_concourse.sh"
 
     concourse.vm.network :private_network, ip: "192.168.99.101"
 
