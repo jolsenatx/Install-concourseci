@@ -58,7 +58,7 @@ fly -t tutorial sync
 
 ## Parting Thoughts
 
-* Thank you to Steven Thellen (thells176) for writing the script that installs Concourse
+* Thank you to [Steven Thellen](https://github.com/thells176/Install-concourseci) for writing the script that installs Concourse
 * And I know you are wondering why not just use the official Concourse Vagrant box? 
 1. Because that would have been too easy
 2. I plan on expanding this project to include additional tools and capabilities to help better understand CI/CD process on a local environment.  
