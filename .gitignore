@@ -11,3 +11,6 @@ ubuntu-xenial-16.04-cloudimg-console.log
 .vagrant/machines/concourse/virtualbox/id
 .vagrant/machines/concourse/virtualbox/creator_uid
 .vagrant/machines/concourse/virtualbox/action_set_name
+.vagrant/machines/concourse/virtualbox/synced_folders
+.vagrant/machines/concourse/virtualbox/private_key
+.vagrant/machines/concourse/virtualbox/action_provision

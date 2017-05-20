@@ -12,7 +12,7 @@ sudo apt-get update
 #Install Cloud Foundry CLI
 sudo apt-get install cf-cli
 
-#Install Concourse Fly CLI
+#Install Concourse Fly CLI on jumpbox VM
 curl -L https://github.com/concourse/fly/releases/download/v2.5.1-rc.9/fly_linux_amd64 -o fly
 chmod +x fly
 sudo mv fly /usr/bin/fly 
