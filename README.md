@@ -1,4 +1,4 @@
-# Local CI/CD Environment using Concourse and provisioned using Vagrant
+# Local CI/CD Environment using Concourse that's provisioned with Vagrant
 
 Multi-VM configuration using Vagrant that comprises of the following:
 - One jumpbox/development Xenial64 VM with the Cloud Foundry and Concourse FLY CLI's installed
