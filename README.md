@@ -56,29 +56,6 @@ The last step is to Sync up Fly by running the following command:
 fly -t tutorial sync
 ```
 
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
 ## Parting Thoughts
 
 * Thank you to Steven Thellen (thells176) for writing the script that installs Concourse
