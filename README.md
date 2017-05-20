@@ -1,4 +1,4 @@
-# Project Title
+# Vagrant deployment of development box and Concourse CI
 
 Multi-VM configuration using Vagrant that comprises of the following:
 - One jumpbox/development Xenial64 VM with the Cloud Foundry and Concourse FLY CLI's installed
