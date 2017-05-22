@@ -91,6 +91,5 @@ echo "  "
           echo " "
           echo " ###############################################"
 
-
-
+echo " "
 printf "Setup complete!\n"
