@@ -15,16 +15,3 @@ sudo apt-get update
 # Install Jenkins
 sudo apt-get install jenkins -y
 
-#Install Jenkins Plugins
-
-#Build Pipeline Plugin
-echo "jenkins-plugins: Installing plugin: build-pipeline-plugin"
-su -l -c "java -jar /var/cache/jenkins/war/WEB-INF/jenkins-cli.jar -s http://localhost:8080 install-plugin build-pipeline-plugin" jenkins
-
-#Delivery Pipeline Plugin
-echo "jenkins-plugins: Installing plugin: delivery-pipeline-plugin"
-su -l -c "java -jar /var/cache/jenkins/war/WEB-INF/jenkins-cli.jar -s http://localhost:8080 install-plugin delivery-pipeline-plugin" jenkins
-
-#Docker Plugin
-echo "jenkins-plugins: Installing plugin: docker-plugin"
-su -l -c "java -jar /var/cache/jenkins/war/WEB-INF/jenkins-cli.jar -s http://localhost:8080 install-plugin docker-plugin" jenkins
