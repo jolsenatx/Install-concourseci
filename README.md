@@ -1,8 +1,11 @@
-# Local CI Environment using [Concourse CI](https://concourse.ci) and Vagrant 
+# Local CI Environment with Vagrant Provisioning
+Two options to choose from:
+- [Concourse CI](https://concourse.ci)
+- [Jenkins](https://jenkins.io)
 
 Multi-VM configuration using Vagrant that comprises of the following:
 - One jumpbox/development Xenial64 VM with the Cloud Foundry and Concourse FLY CLI's installed
-- One VM that installs Concourse CI using Docker Compose 
+- One VM that installs either Concourse CI using Docker Compose or Jenkins 
 
 ## Getting Started
 
