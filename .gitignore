@@ -2,3 +2,17 @@
 jenkins/ubuntu-xenial-16.04-cloudimg-console.log
 jenkins/ubuntu-xenial-16.04-cloudimg-console.log
 jenkins/ubuntu-xenial-16.04-cloudimg-console.log
+jenkins/.vagrant/machines/jumpbox/virtualbox/action_set_name
+jenkins/.vagrant/machines/jumpbox/virtualbox/creator_uid
+jenkins/.vagrant/machines/jumpbox/virtualbox/id
+jenkins/.vagrant/machines/jumpbox/virtualbox/index_uuid
+jenkins/.vagrant/machines/jumpbox/virtualbox/synced_folders
+jenkins/.vagrant/machines/jumpbox/virtualbox/private_key
+jenkins/.vagrant/machines/jumpbox/virtualbox/action_provision
+jenkins/.vagrant/machines/jenkins/virtualbox/index_uuid
+jenkins/.vagrant/machines/jenkins/virtualbox/id
+jenkins/.vagrant/machines/jenkins/virtualbox/creator_uid
+jenkins/.vagrant/machines/jenkins/virtualbox/action_set_name
+jenkins/.vagrant/machines/jenkins/virtualbox/synced_folders
+jenkins/.vagrant/machines/jenkins/virtualbox/private_key
+jenkins/.vagrant/machines/jenkins/virtualbox/action_provision
