@@ -36,7 +36,7 @@ echo " "
         printf "Failed to see jenkins come up within %d seconds. Quitting..." $[$sleep_amount_seconds * $max_checks]
         exit 1
     fi
-    echo "Hooray! It's up!"
+    echo "Jenkins is Running"
 }
 
 # TIMEZONE
