@@ -1,6 +1,11 @@
-#!/bin/bash
-
-do_jenkins_check() {
+echo " "
+          echo " ###############################################"
+          echo " "
+          echo "  Installing Jenkins"
+          echo " "
+          echo " ###############################################"
+    echo " "
+    do_jenkins_check() {
     printf "Waiting for Jenkins to come up."
 
     sleep_amount_seconds=1
@@ -34,9 +39,7 @@ do_jenkins_check() {
     echo "Hooray! It's up!"
 }
 
-
 # TIMEZONE
-# Credit: http://www.thegeekstuff.com/2010/09/change-timezone-in-linux/
 echo "Setting timezone to America/Central"
 rm /etc/localtime
 ln -s /usr/share/zoneinfo/US/Central /etc/localtime
@@ -51,19 +54,6 @@ sudo apt-get -y update
 sudo apt-get -y install jenkins
 sudo apt-get -y install jenkins
 
-echo "Creating bash aliases..."
-if [ ! -f '/home/vagrant/.bash_aliases' ]; then 
-    touch '/home/vagrant/.bash_aliases'
-fi
-
-echo "Attaching alias script to .bashrc..."
-if [ ! -f '/home/vagrant/.bashrc' ]; then
-        touch '/home/vagrant/.bashrc'
-fi
-
-echo "Appending aliases to bash aliases"
-printf "\n\n. /home/vagrant/.bash_aliases" >> /home/vagrant/.bashrc
-
 do_jenkins_check
 
 printf "Setting up Jenkins CLI\n"
@@ -74,17 +64,9 @@ printf "\n alias jnkns=\"java -jar /home/vagrant/jenkins-cli.jar\"" >> /home/vag
 
 export JENKINS_URL=http://localhost:8080
 
-#echo "Installing build-timeout plugin for Jenkins."
-#java -jar /home/vagrant/jenkins-cli.jar install-plugin build-timeout > /dev/null
-#java -jar /home/vagrant/jenkins-cli.jar install-plugin job-dsl > /dev/null
-#java -jar /home/vagrant/jenkins-cli.jar restart > /dev/null
-
-#echo "Restarted Jenkins after installing plugins."
-#do_jenkins_check
-
 jenkins_password=$(cat /var/lib/jenkins/secrets/initialAdminPassword)
 
-echo "  "
+echo " "
           echo " ###############################################"
           echo " "
           echo "  Jenkins Password: "$jenkins_password
