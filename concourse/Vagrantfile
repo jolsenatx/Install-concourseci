@@ -1,5 +1,3 @@
-#Jumpbox VM that installs Cloud Foundry CLI
-
 Vagrant.configure("2") do |config|
   config.vm.define "jumpbox" do |jumpbox|
     jumpbox.vm.box = "ubuntu/xenial64"
@@ -11,8 +9,24 @@ Vagrant.configure("2") do |config|
 
     jumpbox.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v.customize ["modifyvm", :id, "--memory", 2048]
+      v.customize ["modifyvm", :id, "--memory", 1024]
       v.customize ["modifyvm", :id, "--name", "jumpbox"]
+    end
+  end
+
+#Artifactory Install
+  config.vm.define "artifactory" do |artifactory|
+    artifactory.vm.box = "ubuntu/xenial64"
+    artifactory.vm.hostname = 'apache'
+    artifactory.vm.box_url = "ubuntu/xenial64"
+    artifactory.vm.provision :shell, path: "bootstrap_artifactory.sh"
+
+    artifactory.vm.network :private_network, ip: "192.168.99.101"
+
+    artifactory.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v.customize ["modifyvm", :id, "--memory", 2048]
+      v.customize ["modifyvm", :id, "--name", "artifactory"]
     end
   end
 
@@ -23,7 +37,7 @@ Vagrant.configure("2") do |config|
     concourse.vm.box_url = "ubuntu/xenial64"
     concourse.vm.provision :shell, path: "bootstrap_concourse.sh"
 
-    concourse.vm.network :private_network, ip: "192.168.99.101"
+    concourse.vm.network :private_network, ip: "192.168.99.102"
 
     concourse.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
